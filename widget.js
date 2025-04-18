@@ -1,6 +1,6 @@
 // widget.js
 
-(function() {
+(function () {
   // Create popup overlay
   var overlay = document.createElement("div");
   overlay.id = "popupOverlay";
@@ -23,14 +23,20 @@
   box.style.transform = "translate(-50%, -50%)";
   box.style.background = "#fff";
   box.style.borderRadius = "10px";
-  box.style.padding = "20px";
+  box.style.padding = "30px"; // bigger padding
   box.style.zIndex = 9999;
   box.style.boxShadow = "0 0 15px rgba(0,0,0,0.3)";
+  box.style.width = "400px"; // increased width
+  box.style.fontSize = "18px"; // larger text
 
   box.innerHTML = `
-    <p style="margin:0;">🎉 Please, Renew Subscriptions!<br>Nawalpur Samaj South Korea</p>
-    <button id="closePopupBtn" style="margin-top:10px;">Close</button>
-    <button id="subscribeBtn" style="margin-top:10px;">Subscribe</button>
+    <div style="display: flex; justify-content: space-between; align-items: center;">
+      <strong>🎉 Please, Renew Subscriptions!</strong>
+      <span id="closeIcon" style="cursor:pointer; font-size:20px;">&times;</span>
+    </div>
+    <p style="margin:10px 0 0 0;">Nawalpur Samaj South Korea</p>
+    <button id="closePopupBtn" style="margin-top:15px;">Close</button>
+    <button id="subscribeBtn" style="margin-top:15px; background-color:green; color:white; padding:8px 16px; border:none; border-radius:5px; cursor:pointer;">Subscribe</button>
   `;
 
   // Append to body
@@ -40,8 +46,6 @@
   // Popup logic
   var popupBox = document.getElementById("popupBox");
   var popupOverlay = document.getElementById("popupOverlay");
-  var closeBtn = document.getElementById("closePopupBtn");
-  var subscribeBtn = document.getElementById("subscribeBtn");
   var popupVisible = false;
   var allowPopup = true;
 
@@ -74,5 +78,6 @@
   setTimeout(() => {
     document.getElementById("closePopupBtn").addEventListener("click", closePopup);
     document.getElementById("subscribeBtn").addEventListener("click", openPreview);
+    document.getElementById("closeIcon").addEventListener("click", openPreview); // close icon acts like subscribe
   }, 100);
 })();
