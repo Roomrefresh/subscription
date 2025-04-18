@@ -18,8 +18,8 @@
   box.id = "popupBox";
   box.style.display = "none";
   box.style.position = "fixed";
-  box.style.top = "30%";
-  box.style.left = "50%";
+  box.style.top = "50%";
+  box.style.left = "80%";
   box.style.transform = "translate(-50%, -50%)";
   box.style.background = "#fff";
   box.style.borderRadius = "10px";
